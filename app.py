@@ -408,8 +408,9 @@ if file is not None:
                 2
             )
 
-        except:
-            pass
+        except Exception as e:
+            st.error(f"Gagal membaca nutrisi untuk {nama_dataset}")
+            st.write(e)
 
     # =================================
     # HASIL DETEKSI
@@ -658,3 +659,5 @@ if file is not None:
         file_name="Laporan_SobatOmpreng.pdf",
         mime="application/pdf"
 )
+    
+    
