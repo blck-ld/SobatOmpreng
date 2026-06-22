@@ -656,9 +656,28 @@ else:
 # ======================
 # DOWNLOAD PDF
 # ======================
+    # jika variabel belum ada
+if 'kelas_unik' not in locals():
+    kelas_unik = set()
 
+if 'total_kalori' not in locals():
+    total_kalori = 0
+
+if 'total_protein' not in locals():
+    total_protein = 0
+
+if 'total_lemak' not in locals():
+    total_lemak = 0
+
+if 'total_karbo' not in locals():
+    total_karbo = 0
+
+if 'score' not in locals():
+    score = 0
+
+if 'kesimpulan_pdf' not in locals():
+    kesimpulan_pdf = "Belum ada hasil analisis."
     st.subheader("📄 Laporan Analisis")
-
     pdf_file = buat_pdf(
         list(kelas_unik),
         total_kalori,
