@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.pyc
+
+# Virtual Environment
+.venv/
+
+# VS Code
+.vscode/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# YOLO Training Results
+runs/
+
+# Dataset
+dataset/
+
+# Temporary files
+*.log
