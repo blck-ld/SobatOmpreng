@@ -487,10 +487,10 @@ if file is not None:
     # AKG SEKALI MAKAN
     # =================================
 
-    AKG_KALORI = 700
+    AKG_KALORI = 500
     AKG_PROTEIN = 20
-    AKG_LEMAK = 20
-    AKG_KARBO = 75
+    AKG_LEMAK = 15
+    AKG_KARBO = 60
 
     
 
