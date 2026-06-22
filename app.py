@@ -611,32 +611,48 @@ if file is not None:
     else:
         st.error("🔴 Menu Tidak Layak")
 
-# ======================
 # GRAFIK NUTRISI
 # ======================
 
-    st.subheader("📈 Komposisi Nutrisi")
+st.subheader("📈 Komposisi Nutrisi")
+
+st.write("Protein :", total_protein)
+st.write("Lemak :", total_lemak)
+st.write("Karbohidrat :", total_karbo)
+st.write("Kalori :", total_kalori)
+
+if (
+    total_protein > 0
+    or total_lemak > 0
+    or total_karbo > 0
+    or total_kalori > 0
+):
 
     fig, ax = plt.subplots()
 
     ax.pie(
-    [
-        total_protein,
-        total_lemak,
-        total_karbo,
-        total_kalori
-    ],
-    labels=[
-        "Protein",
-        "Lemak",
-        "Karbohidrat",
-        "Kalori"
-    ],
-    autopct="%1.1f%%"
-)
+        [
+            total_protein,
+            total_lemak,
+            total_karbo,
+            total_kalori
+        ],
+        labels=[
+            "Protein",
+            "Lemak",
+            "Karbohidrat",
+            "Kalori"
+        ],
+        autopct="%1.1f%%"
+    )
 
     st.pyplot(fig)
 
+else:
+
+    st.error(
+        "Semua nilai nutrisi = 0. Data nutrisi gagal ditemukan."
+    )
 # ======================
 # DOWNLOAD PDF
 # ======================
