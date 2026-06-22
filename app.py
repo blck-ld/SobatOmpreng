@@ -614,21 +614,21 @@ if file is not None:
 # GRAFIK NUTRISI
 # ======================
 
-st.subheader("📈 Komposisi Nutrisi")
+    st.subheader("📈 Komposisi Nutrisi")
 
-st.write("Protein :", total_protein)
-st.write("Lemak :", total_lemak)
-st.write("Karbohidrat :", total_karbo)
-st.write("Kalori :", total_kalori)
+    st.write("Protein :", total_protein)
+    st.write("Lemak :", total_lemak)
+    st.write("Karbohidrat :", total_karbo)
+    st.write("Kalori :", total_kalori)
 
-if (
-    total_protein > 0
-    or total_lemak > 0
-    or total_karbo > 0
-    or total_kalori > 0
+    if (
+     total_protein > 0
+     or total_lemak > 0
+     or total_karbo > 0
+     or total_kalori > 0
 ):
 
-    fig, ax = plt.subplots()
+     fig, ax = plt.subplots()
 
     ax.pie(
         [
