@@ -217,8 +217,6 @@ nutrition = pd.read_csv(
     sep=";",
     engine="python"
 )
-st.write("Jumlah data nutrisi:", len(nutrition))
-st.write(nutrition.head())
 
 nutrition.columns = [
     "id",
@@ -617,24 +615,20 @@ if file is not None:
     else:
         st.error("🔴 Menu Tidak Layak")
 
+# ======================
 # GRAFIK NUTRISI
 # ======================
 
-    st.subheader("📈 Komposisi Nutrisi")
+st.subheader("📈 Komposisi Nutrisi")
 
-    st.write("Protein :", total_protein)
-    st.write("Lemak :", total_lemak)
-    st.write("Karbohidrat :", total_karbo)
-    st.write("Kalori :", total_kalori)
-
-    if (
-     total_protein > 0
-     or total_lemak > 0
-     or total_karbo > 0
-     or total_kalori > 0
+if (
+    total_protein > 0
+    or total_lemak > 0
+    or total_karbo > 0
+    or total_kalori > 0
 ):
 
-     fig, ax = plt.subplots()
+    fig, ax = plt.subplots()
 
     ax.pie(
         [
@@ -656,49 +650,29 @@ if file is not None:
 
 else:
 
-    st.error(
-        "Semua nilai nutrisi = 0. Data nutrisi gagal ditemukan."
+    st.warning(
+        "Belum ada makanan yang berhasil dianalisis."
     )
+
 # ======================
 # DOWNLOAD PDF
 # ======================
-    # jika variabel belum ada
-if 'kelas_unik' not in locals():
-    kelas_unik = set()
 
-if 'total_kalori' not in locals():
-    total_kalori = 0
+st.subheader("📄 Laporan Analisis")
 
-if 'total_protein' not in locals():
-    total_protein = 0
-
-if 'total_lemak' not in locals():
-    total_lemak = 0
-
-if 'total_karbo' not in locals():
-    total_karbo = 0
-
-if 'score' not in locals():
-    score = 0
-
-if 'kesimpulan_pdf' not in locals():
-    kesimpulan_pdf = "Belum ada hasil analisis."
-    st.subheader("📄 Laporan Analisis")
-    pdf_file = buat_pdf(
-        list(kelas_unik),
-        total_kalori,
-        total_protein,
-        total_lemak,
-        total_karbo,
-        score,
-        kesimpulan_pdf
+pdf_file = buat_pdf(
+    list(kelas_unik),
+    total_kalori,
+    total_protein,
+    total_lemak,
+    total_karbo,
+    score,
+    kesimpulan_pdf
 )
 
-    st.download_button(
-        label="⬇️ Download Laporan PDF",
-        data=pdf_file,
-        file_name="Laporan_SobatOmpreng.pdf",
-        mime="application/pdf"
+st.download_button(
+    label="⬇️ Download Laporan PDF",
+    data=pdf_file,
+    file_name="Laporan_SobatOmpreng.pdf",
+    mime="application/pdf"
 )
-    
-    
