@@ -619,9 +619,9 @@ if file is not None:
 # GRAFIK NUTRISI
 # ======================
 
-st.subheader("📈 Komposisi Nutrisi")
+    st.subheader("📈 Komposisi Nutrisi")
 
-if (
+    if (
         total_protein > 0
         or total_lemak > 0
         or total_karbo > 0
@@ -648,7 +648,7 @@ if (
 
         st.pyplot(fig)
 
-else:
+    else:
 
         st.warning(
         "Belum ada makanan yang berhasil dianalisis."
@@ -661,18 +661,18 @@ else:
     st.subheader("📄 Laporan Analisis")
 
     pdf_file = buat_pdf(
-    list(kelas_unik),
-    total_kalori,
-    total_protein,
-    total_lemak,
-    total_karbo,
-    score,
-    kesimpulan_pdf
+        list(kelas_unik),
+        total_kalori,
+        total_protein,
+        total_lemak,
+        total_karbo,
+        score,
+        kesimpulan_pdf
 )
 
     st.download_button(
-    label="⬇️ Download Laporan PDF",
-    data=pdf_file,
-    file_name="Laporan_SobatOmpreng.pdf",
-    mime="application/pdf"
+        label="⬇️ Download Laporan PDF",
+        data=pdf_file,
+        file_name="Laporan_SobatOmpreng.pdf",
+        mime="application/pdf"
 )
