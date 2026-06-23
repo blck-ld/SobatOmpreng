@@ -269,6 +269,17 @@ metode = st.radio(
 
 file = None
 
+total_kalori = 0
+total_protein = 0
+total_lemak = 0
+total_karbo = 0
+
+kelas_unik = set()
+tabel_nutrisi = []
+
+score = 0
+kesimpulan_pdf = "Belum ada hasil analisis."
+
 # ==========================
 # UPLOAD FOTO
 # ==========================
@@ -622,10 +633,10 @@ if file is not None:
 st.subheader("📈 Komposisi Nutrisi")
 
 if (
-    total_protein > 0
-    or total_lemak > 0
-    or total_karbo > 0
-    or total_kalori > 0
+        total_protein > 0
+        or total_lemak > 0
+        or total_karbo > 0
+        or total_kalori > 0
 ):
 
     fig, ax = plt.subplots()
@@ -658,9 +669,9 @@ else:
 # DOWNLOAD PDF
 # ======================
 
-st.subheader("📄 Laporan Analisis")
+    st.subheader("📄 Laporan Analisis")
 
-pdf_file = buat_pdf(
+    pdf_file = buat_pdf(
     list(kelas_unik),
     total_kalori,
     total_protein,
@@ -670,7 +681,7 @@ pdf_file = buat_pdf(
     kesimpulan_pdf
 )
 
-st.download_button(
+    st.download_button(
     label="⬇️ Download Laporan PDF",
     data=pdf_file,
     file_name="Laporan_SobatOmpreng.pdf",
