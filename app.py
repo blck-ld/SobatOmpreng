@@ -617,44 +617,41 @@ if file is not None:
         st.error("🔴 Menu Tidak Layak")
 
 # ======================
-# GRAFIK NUTRISI
+# GRAFIK KONTRIBUSI KALORI
 # ======================
 
-    st.subheader("📈 Komposisi Nutrisi")
+    st.subheader("📈 Kontribusi Kalori Tiap Makanan")
 
-    if (
-        total_protein > 0
-        or total_lemak > 0
-        or total_karbo > 0
-        or total_kalori > 0
-):
+    if len(tabel_nutrisi) > 0:
+
+        nama_makanan = []
+        kalori_makanan = []
+
+        for item in tabel_nutrisi:
+
+            nama_makanan.append(
+                item["Makanan"]
+            )
+
+            kalori_makanan.append(
+                item["Kalori"]
+            )
 
         fig, ax = plt.subplots()
 
         ax.pie(
-        [
-            total_protein,
-            total_lemak,
-            total_karbo,
-            total_kalori
-        ],
-        labels=[
-            "Protein",
-            "Lemak",
-            "Karbohidrat",
-            "Kalori"
-        ],
-        autopct="%1.1f%%"
-    )
+            kalori_makanan,
+            labels=nama_makanan,
+            autopct="%1.1f%%"
+        )
 
         st.pyplot(fig)
 
     else:
 
         st.warning(
-        "Belum ada makanan yang berhasil dianalisis."
-    )
-
+            "Belum ada makanan yang berhasil dianalisis."
+        )
 # ======================
 # DOWNLOAD PDF
 # ======================
