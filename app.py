@@ -619,9 +619,9 @@ if file is not None:
 # GRAFIK NUTRISI
 # ======================
 
-    st.subheader("📈 Komposisi Nutrisi")
+st.subheader("📈 Komposisi Nutrisi")
 
-    if (
+if (
         total_protein > 0
         or total_lemak > 0
         or total_karbo > 0
@@ -648,7 +648,7 @@ if file is not None:
 
         st.pyplot(fig)
 
-    else:
+else:
 
         st.warning(
         "Belum ada makanan yang berhasil dianalisis."
