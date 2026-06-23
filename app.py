@@ -273,6 +273,7 @@ metode = st.radio(
 # UPLOAD FOTO
 # ==========================
 
+file = None
 if metode == "Upload Foto":
 
     uploaded_file = st.file_uploader(
