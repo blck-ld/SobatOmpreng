@@ -267,18 +267,7 @@ metode = st.radio(
     ["Upload Foto", "Kamera"]
 )
 
-file = None
 
-total_kalori = 0
-total_protein = 0
-total_lemak = 0
-total_karbo = 0
-
-kelas_unik = set()
-tabel_nutrisi = []
-
-score = 0
-kesimpulan_pdf = "Belum ada hasil analisis."
 
 # ==========================
 # UPLOAD FOTO
@@ -630,18 +619,18 @@ if file is not None:
 # GRAFIK NUTRISI
 # ======================
 
-st.subheader("📈 Komposisi Nutrisi")
+    st.subheader("📈 Komposisi Nutrisi")
 
-if (
+    if (
         total_protein > 0
         or total_lemak > 0
         or total_karbo > 0
         or total_kalori > 0
 ):
 
-    fig, ax = plt.subplots()
+        fig, ax = plt.subplots()
 
-    ax.pie(
+        ax.pie(
         [
             total_protein,
             total_lemak,
@@ -657,11 +646,11 @@ if (
         autopct="%1.1f%%"
     )
 
-    st.pyplot(fig)
+        st.pyplot(fig)
 
-else:
+    else:
 
-    st.warning(
+        st.warning(
         "Belum ada makanan yang berhasil dianalisis."
     )
 
