@@ -217,6 +217,8 @@ nutrition = pd.read_csv(
     sep=";",
     engine="python"
 )
+st.write("Jumlah data nutrisi:", len(nutrition))
+st.write(nutrition.head())
 
 nutrition.columns = [
     "id",
@@ -237,7 +239,7 @@ mapping = {
     "Ikan": "Ikan bandeng presto masakan",
     "Telur": "Telur Ayam",
     "Jeruk": "Jeruk Manis",
-    "Anggur": "Anggur Hutan Segar",
+    "Anggur": "Anggur hutan segar",
     "Melon": "Melon segar",
     "Markisa": "Markisa segar",
     "Roti": "Roti Putih",
