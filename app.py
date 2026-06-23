@@ -35,7 +35,11 @@ st.subheader("Dashboard Monitoring Gizi MBG")
 # LOAD MODEL
 # =====================================
 
-model = YOLO("best.pt")
+@st.cache_resource
+def load_model():
+    return YOLO("best.pt")
+
+model = load_model()
 def buat_pdf(
     makanan,
     kalori,
